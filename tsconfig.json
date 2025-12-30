@@ -1,11 +1,15 @@
 {
+
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
-    "module": "nodenext",
-    "target": "esnext",
-    "lib": ["esnext"],
+    "module": "es2022",
+    "target": "es2022",
+    "lib": ["es2022", "dom"],
     "strict": true,
     "skipLibCheck": true,
-  }
+    "esModuleInterop": true,
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
