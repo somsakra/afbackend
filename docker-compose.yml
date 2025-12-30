@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:17  # Use latest stable version
+    restart: always
+    environment:
+      POSTGRES_USER: postgres        # Optional: Defaults to 'postgres'
+      POSTGRES_PASSWORD: password # Required: Your secret password
+      POSTGRES_DB: mydb    # Optional: Initial DB name
+    ports:
+      - "5432:5432"              # Maps host port 5432 to container 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
