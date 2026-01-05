@@ -2,11 +2,12 @@ import { Router, Request, Response } from "express";
 import { prisma } from "../lib/prisma.js";
 import argon2 from "argon2"
 import jwt from "jsonwebtoken"
+import { authenticateToken } from "../middleware/authentication.js";
 
 
 const userRouter = Router();
 
-userRouter.get("/:id", async (req: Request, res: Response) => {
+userRouter.get("/:id", authenticateToken, async (req: Request, res: Response) => {
     const user = await prisma.user.findUnique({
         where: {
             id: (req.params.id)
